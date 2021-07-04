@@ -35,11 +35,9 @@ class CountriesAdapter : RecyclerView.Adapter<CountryHolder>() {
 class CountryHolder(view: View) : RecyclerView.ViewHolder(view){
     private val nameText = view.findViewById<TextView>(R.id.nameText)
     private val capitalText = view.findViewById<TextView>(R.id.capitalText)
-    private val popAreaText = view.findViewById<TextView>(R.id.popAreaText)
 
     fun bind(country: CountrySimplified){
         nameText.text = itemView.context.getString(R.string.name_country_format, country.name)
         capitalText.text = itemView.context.getString(R.string.capital_format, country.capital)
-        popAreaText.text = itemView.context.getString(R.string.pop_area_format, country.population, country.area)
     }
 }

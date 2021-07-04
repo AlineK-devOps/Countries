@@ -27,25 +27,12 @@
         android:layout_height="wrap_content"
         android:textColor="@color/purple_200"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/popAreaText"
+        app:layout_constraintBottom_toTopOf="@+id/separator"
         app:layout_constraintEnd_toStartOf="@id/icon"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameText"
         tools:text="Capital: Moscow" />
-
-    <TextView
-        android:id="@+id/popAreaText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purple_200"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/separator"
-        app:layout_constraintEnd_toStartOf="@id/icon"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capitalText"
-        tools:text="Population: 146238185, area: 17125191.0" />
 
     <ImageView
         android:id="@+id/icon"
@@ -65,5 +52,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popAreaText" />
+        app:layout_constraintTop_toBottomOf="@+id/capitalText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
