@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.os.Handler
 
 class SplashScreenActivity : Activity() {
-    private val SPLASH_DISPLAY_LENGTH: Long = 3000 //отображение сплэшскрина 3 секунды
+    companion object{
+        private const val SPLASH_DISPLAY_LENGTH: Long = 3000 //отображение сплэшскрина 3 секунды
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
