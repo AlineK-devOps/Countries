@@ -1,3 +1,7 @@
 <resources>
-	<string name="app_name">Shift2021Summer</string>
+    <string name="app_name">WorldWide</string>
+    <string name="name_country_format">%1$s</string>
+    <string name="capital_format">Capital: %1$s</string>
+    <string name="population_format">Population: %1$d</string>
+    <string name="area_format">Area: %1$f</string>
 </resources>
