@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:contentDescription="TODO"
         android:scaleType="matrix"
-        app:srcCompat="@drawable/splash_screen_background" />
+        android:src="@drawable/splash_screen_background" />
 
     <ImageView
         android:id="@+id/logoView"
@@ -20,5 +20,5 @@
         android:contentDescription="TODO"
         android:scaleX="0.7"
         android:scaleY="0.7"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        android:src="@drawable/ic_launcher_foreground" />
 </RelativeLayout>
