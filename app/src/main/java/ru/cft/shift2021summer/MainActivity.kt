@@ -10,7 +10,9 @@ import ru.cft.shift2021summer.testdata.CountryRepository
 class MainActivity : AppCompatActivity() {
     private lateinit var countryRepository: CountryRepository
     private lateinit var countriesRecycler: RecyclerView
-    private val adapter = CountriesAdapter()
+    private val adapter = CountriesAdapter {
+        CountryDetailsActivity.start(this, it.name)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.cft.shift2021summer.R
 import ru.cft.shift2021summer.testdata.CountrySimplified
 
-class CountriesAdapter : RecyclerView.Adapter<CountryHolder>() {
+class CountriesAdapter(private val onItemClick: (CountrySimplified) -> Unit) :
+    RecyclerView.Adapter<CountryHolder>() {
+
     var countries: List<CountrySimplified> = emptyList()
     set(value){
         field = value
@@ -20,7 +22,7 @@ class CountriesAdapter : RecyclerView.Adapter<CountryHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryHolder {
         val view = (LayoutInflater.from(parent.context))
             .inflate(R.layout.item_country, parent, false)
-        return CountryHolder(view)
+        return CountryHolder(view, onItemClick)
     }
 
     override fun onBindViewHolder(holder: CountryHolder, position: Int) {
@@ -32,12 +34,17 @@ class CountriesAdapter : RecyclerView.Adapter<CountryHolder>() {
 
 }
 
-class CountryHolder(view: View) : RecyclerView.ViewHolder(view){
+class CountryHolder(
+    view: View,
+    private val onItemClick: (CountrySimplified) -> Unit)
+    : RecyclerView.ViewHolder(view){
+
     private val nameText = view.findViewById<TextView>(R.id.nameText)
     private val capitalText = view.findViewById<TextView>(R.id.capitalText)
 
     fun bind(country: CountrySimplified){
         nameText.text = itemView.context.getString(R.string.name_country_format, country.name)
         capitalText.text = itemView.context.getString(R.string.capital_format, country.capital)
+        itemView.setOnClickListener { onItemClick(country) }
     }
 }
