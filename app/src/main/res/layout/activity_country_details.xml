@@ -9,12 +9,13 @@
 
     <TextView
         android:id="@+id/nameText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:textColor="@color/purple_700"
         android:text="Russia"
-        android:textSize="24sp"/>
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/infoText"
@@ -24,5 +25,12 @@
         android:textColor="@color/purple_500"
         android:text="info"
         android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back_button"
+        android:textAlignment="center" />
 
 </LinearLayout>
