@@ -23,12 +23,10 @@ class MainActivity : AppCompatActivity() {
         countriesRecycler.layoutManager = LinearLayoutManager(this)
 
         countryRepository = CountryRepository()
-
     }
 
     override fun onResume() {
         super.onResume()
-
         adapter.countries = countryRepository.getAllCountries()
     }
 }

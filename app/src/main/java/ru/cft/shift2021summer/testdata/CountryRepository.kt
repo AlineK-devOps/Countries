@@ -1,67 +1,31 @@
 package ru.cft.shift2021summer.testdata
 
-//тестовые данные для списка стран
+import ru.cft.shift2021summer.model.*
+import java.util.*
+
+/** Репозиторий стран **/
 
 class CountryRepository {
-    private val countries = mutableListOf<CountrySimplified>(
-        CountrySimplified(
-          name = "Russia",
-          capital = "Moscow",
-        ),
+    private val countries = mutableListOf<CountryModel>()
 
-        CountrySimplified(
-            name = "Canada",
-            capital = "Ottawa",
-        ),
+    init{
+        for (i in 1..20){ //тестовые данные
+            val country = CountryModel("name$i", listOf("topLevelDomain$i", "topLevelDomain$i"),
+                "alpha2Code$i", "alpha3Code$i", listOf("callingCodes$i", "callingCodes$i"),
+                "capital$i", listOf("altSpellings$i", "altSpellings$i"), "region$i", "subregion$i",
+                i, listOf(i * 1.0, i * 1.0), "demonym$i", i * 1.0, i * 1.0, listOf(TimeZone.getDefault()),
+                listOf("borders$i", "borders$i"), "nativeName$i", "numericCode$i",
+                listOf(CurrencyModel("code$i", "name$i", "symbol$i")),
+                listOf(LanguageModel("iso639_1$i", "iso639_2$i", "name$i", "nativeName$i")),
+                CountryNameTranslationModel("de$i", "es$i", "fr$i", "ja$i", "it$i", "br$i", "pt$i"), "flag$i",
+                listOf(RegionalBlockModel("acronym$i", "name$i", listOf("otherAcronyms$i"), listOf("otherNames$i"))), "cios$i");
 
-        CountrySimplified(
-            name = "USA",
-            capital = "Washington",
-        ),
-
-        CountrySimplified(
-            name = "France",
-            capital = "Paris",
-        ),
-
-        CountrySimplified(
-            name = "Mexico",
-            capital = "Mexico City",
-        ),
-
-        CountrySimplified(
-            name = "Germany",
-            capital = "Berlin",
-        ),
-
-        CountrySimplified(
-            name = "Netherlands",
-            capital = "Amsterdam",
-        ),
-
-        CountrySimplified(
-            name = "Italy",
-            capital = "Rome",
-        ),
-
-        CountrySimplified(
-            name = "Ukraine",
-            capital = "Kyiv",
-        ),
-
-        CountrySimplified(
-            name = "Norway",
-            capital = "Oslo",
-        )
-    )
-
-    fun getAllCountries(): List<CountrySimplified> = countries
-
-    fun setCountry(country: CountrySimplified){
-        val index = countries.indexOfFirst { it.name.equals(country.name, true) }
-        countries[index] = country
+            countries.add(country);
+        }
     }
 
-    fun getCountry(name: String): CountrySimplified? =
+    fun getAllCountries(): List<CountryModel> = countries
+
+    fun getCountry(name: String): CountryModel? =
         countries.firstOrNull { it.name.equals(name, true) }
 }
