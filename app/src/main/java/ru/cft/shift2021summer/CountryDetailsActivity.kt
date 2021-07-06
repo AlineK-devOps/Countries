@@ -13,7 +13,7 @@ class CountryDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country_details)
 
-        countriesRepository = CountryRepository()
+        countriesRepository = (application as WorldWideApplication).countryRepository
         val country = countriesRepository.getCountry("Russia")
 
         val nameText = findViewById<TextView>(R.id.nameText)
