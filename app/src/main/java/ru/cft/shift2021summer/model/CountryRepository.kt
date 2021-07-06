@@ -1,6 +1,5 @@
-package ru.cft.shift2021summer.testdata
+package ru.cft.shift2021summer.model
 
-import ru.cft.shift2021summer.model.*
 import java.util.*
 
 /** Репозиторий стран **/

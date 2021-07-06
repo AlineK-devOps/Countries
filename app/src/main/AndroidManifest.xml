@@ -9,21 +9,21 @@
         android:roundIcon="@drawable/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shift2021Summer">
-        <activity android:name=".CountryDetailsActivity">
+        <activity android:name=".activity.CountryDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer
+package ru.cft.shift2021summer.activity
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import ru.cft.shift2021summer.testdata.CountryRepository
+import ru.cft.shift2021summer.R
+import ru.cft.shift2021summer.model.CountryRepository
 
 class CountryDetailsActivity : AppCompatActivity() {
     companion object{

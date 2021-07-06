@@ -1,11 +1,13 @@
-package ru.cft.shift2021summer
+package ru.cft.shift2021summer.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.cft.shift2021summer.R
+import ru.cft.shift2021summer.activity.CountryDetailsActivity
 import ru.cft.shift2021summer.adapters.CountriesAdapter
-import ru.cft.shift2021summer.testdata.CountryRepository
+import ru.cft.shift2021summer.model.CountryRepository
 
 class MainActivity : AppCompatActivity() {
     private lateinit var countryRepository: CountryRepository
