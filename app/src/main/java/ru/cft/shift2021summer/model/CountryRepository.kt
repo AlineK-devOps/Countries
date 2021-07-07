@@ -4,7 +4,18 @@ import java.util.*
 
 /** Репозиторий стран **/
 
-class CountryRepository {
+class CountryRepository private constructor() { //Singleton
+    companion object{
+        private var repository: CountryRepository? = null
+
+        fun getInstance(): CountryRepository?{
+            if (repository == null)
+                repository = CountryRepository()
+
+            return repository
+        }
+    }
+
     private val countries = mutableListOf<CountryModel>()
 
     init{
@@ -24,6 +35,8 @@ class CountryRepository {
     }
 
     fun getAllCountries(): List<CountryModel> = countries
+
+    fun getRepository() = countries
 
     fun getCountry(name: String): CountryModel? =
         countries.firstOrNull { it.name.equals(name, true) }

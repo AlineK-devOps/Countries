@@ -21,15 +21,15 @@ class CountryDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private lateinit var countriesRepository: CountryRepository
+    private var countriesRepository: CountryRepository? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country_details)
 
-        countriesRepository = CountryRepository()
+        countriesRepository = CountryRepository.getInstance()
         val name = intent.getStringExtra(EXTRA_NAME)
-        val country = name?.let { countriesRepository.getCountry(it) }
+        val country = name?.let { countriesRepository?.getCountry(it) }
 
         val nameText = findViewById<TextView>(R.id.nameText)
         val infoText = findViewById<TextView>(R.id.infoText)

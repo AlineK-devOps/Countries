@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.cft.shift2021summer.MainPresenter
 import ru.cft.shift2021summer.MainView
 import ru.cft.shift2021summer.R
-import ru.cft.shift2021summer.activity.CountryDetailsActivity
 import ru.cft.shift2021summer.adapters.CountriesAdapter
 import ru.cft.shift2021summer.model.CountryModel
 import ru.cft.shift2021summer.model.CountryRepository
@@ -14,13 +14,15 @@ import ru.cft.shift2021summer.model.CountryRepository
 class MainActivity : AppCompatActivity(), MainView {
     //private lateinit var countryRepository: CountryRepository
 
-    private val adapter = CountriesAdapter {
-        //CountryDetailsActivity.start(this, it.name)
-    }
+    private val presenter by lazy { MainPresenter(CountryRepository.getInstance()) }
+
+    private val adapter by lazy { CountriesAdapter (presenter::onCountryClicked) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        presenter.attachView(this)
 
         val countriesRecycler = findViewById<RecyclerView>(R.id.countriesRecycler)
         countriesRecycler.adapter = adapter
@@ -33,6 +35,11 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onResume()
         adapter.countries = countryRepository.getAllCountries()
     }*/
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onScreenResumed()
+    }
 
     override fun bindCountry(countries: List<CountryModel>){
         adapter.countries = countries

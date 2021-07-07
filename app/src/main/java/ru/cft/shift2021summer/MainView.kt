@@ -1,6 +1,7 @@
 package ru.cft.shift2021summer
 
-import ru.cft.shift2021summer.activity.CountryDetailsActivity
+/** MVP контракт для MainActivity **/
+
 import ru.cft.shift2021summer.model.CountryModel
 
 interface MainView : BaseView{
