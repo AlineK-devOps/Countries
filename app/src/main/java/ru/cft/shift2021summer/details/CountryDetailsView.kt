@@ -1,6 +1,7 @@
-package ru.cft.shift2021summer
+package ru.cft.shift2021summer.details
 
-import ru.cft.shift2021summer.model.CountryModel
+import ru.cft.shift2021summer.base.BaseView
+import ru.cft.shift2021summer.data.model.CountryModel
 
 /** MVP контракт для CountryDetailsActivity **/
 

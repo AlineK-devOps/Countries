@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer
+package ru.cft.shift2021summer.base
 
 /** Базовый presenter для MVP **/
 

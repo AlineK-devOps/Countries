@@ -1,22 +1,21 @@
-package ru.cft.shift2021summer.activity
+package ru.cft.shift2021summer.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.cft.shift2021summer.MainPresenter
-import ru.cft.shift2021summer.MainView
 import ru.cft.shift2021summer.R
 import ru.cft.shift2021summer.adapters.CountriesAdapter
-import ru.cft.shift2021summer.model.CountryModel
-import ru.cft.shift2021summer.model.CountryRepository
+import ru.cft.shift2021summer.details.CountryDetailsActivity
+import ru.cft.shift2021summer.data.model.CountryModel
+import ru.cft.shift2021summer.data.CountryRepository
 
 class MainActivity : AppCompatActivity(), MainView {
-    //private lateinit var countryRepository: CountryRepository
-
     private val presenter by lazy { MainPresenter(CountryRepository.getInstance()) }
 
     private val adapter by lazy { CountriesAdapter (presenter::onCountryClicked) }
+
+    private lateinit var countriesRecycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,17 +23,10 @@ class MainActivity : AppCompatActivity(), MainView {
 
         presenter.attachView(this)
 
-        val countriesRecycler = findViewById<RecyclerView>(R.id.countriesRecycler)
+        countriesRecycler = findViewById<RecyclerView>(R.id.countriesRecycler)
         countriesRecycler.adapter = adapter
         countriesRecycler.layoutManager = LinearLayoutManager(this)
-
-        //countryRepository = CountryRepository()
     }
-
-    /*override fun onResume() {
-        super.onResume()
-        adapter.countries = countryRepository.getAllCountries()
-    }*/
 
     override fun onResume() {
         super.onResume()

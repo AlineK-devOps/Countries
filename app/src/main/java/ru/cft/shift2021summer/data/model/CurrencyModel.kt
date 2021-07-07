@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer.model
+package ru.cft.shift2021summer.data.model
 
 /** Модель государственной валюты **/
 

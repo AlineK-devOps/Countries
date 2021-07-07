@@ -1,6 +1,7 @@
-package ru.cft.shift2021summer
+package ru.cft.shift2021summer.details
 
-import ru.cft.shift2021summer.model.CountryRepository
+import ru.cft.shift2021summer.base.BasePresenter
+import ru.cft.shift2021summer.data.CountryRepository
 
 /** Класс-presenter для страницы деталей MVP **/
 
@@ -17,11 +18,5 @@ class CountryDetailsPresenter(
         } else {
             view?.closeScreen()
         }
-    }
-
-    fun onSaveButtonClicked(character: Character) {
-        /*repository.set(character)
-
-        view?.closeScreen()*/
     }
 }

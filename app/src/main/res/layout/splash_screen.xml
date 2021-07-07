@@ -10,17 +10,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="296dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="118dp"
+            android:layout_width="95dp"
             android:layout_height="83dp"
             android:scaleX="0.8"
             android:scaleY="0.8"
             android:src="@drawable/icon_launcher"
-            android:translationX="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="272dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="@string/app_name_uppercase"
