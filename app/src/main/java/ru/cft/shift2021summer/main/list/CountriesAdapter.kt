@@ -40,11 +40,9 @@ class CountryHolder(
     : RecyclerView.ViewHolder(view){
 
     private val nameText = view.findViewById<TextView>(R.id.nameText)
-    private val capitalText = view.findViewById<TextView>(R.id.capitalText)
 
     fun bind(country: CountryModel){
         nameText.text = itemView.context.getString(R.string.name_country_format, country.name)
-        capitalText.text = itemView.context.getString(R.string.capital_format, country.capital)
         itemView.setOnClickListener { onItemClick(country) }
     }
 }

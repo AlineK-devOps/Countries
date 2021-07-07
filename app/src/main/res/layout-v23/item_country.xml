@@ -14,26 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/purple_700"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/capitalText"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/separator"
         app:layout_constraintEnd_toStartOf="@id/icon"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Russia" />
-
-    <TextView
-        android:id="@+id/capitalText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purple_200"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/separator"
-        app:layout_constraintEnd_toStartOf="@id/icon"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
-        tools:text="Capital: Moscow" />
 
     <ImageView
         android:id="@+id/icon"
@@ -53,5 +40,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capitalText" />
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
