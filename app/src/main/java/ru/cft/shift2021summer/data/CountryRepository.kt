@@ -9,11 +9,11 @@ class CountryRepository private constructor() { //Singleton
     companion object{
         private var repository: CountryRepository? = null
 
-        fun getInstance(): CountryRepository?{
+        fun getInstance(): CountryRepository{
             if (repository == null)
                 repository = CountryRepository()
 
-            return repository
+            return repository as CountryRepository
         }
     }
 
