@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">WorldWide</string>
     <string name="app_name_uppercase">WORLDWIDE</string>
+    <string name="app_description">WORLDWIDE is your gateway to understanding life outside your home. Start by selecting a region and begin your exploration.</string>
+    <string name="hint">Enter country</string>
+
+
     <string name="name_country_format">%1$s</string>
     <string name="capital_format">Capital: %1$s</string>
     <string name="population_format">Population: %1$d</string>
     <string name="area_format">Area: %1$f</string>
     <string name="info_format">Information: %1$s</string>
+
+
     <string name="back_button">GO BACK</string>
 </resources>

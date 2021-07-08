@@ -9,4 +9,16 @@
 	<color name="white">#FFFFFFFF</color>
 	<color name="dark_green">#116C20</color>
 	<color name="lime_green">#3AA600</color>
+
+	<!-- ЦВЕТОВАЯ ПАЛИТРА ПРИЛОЖЕНИЯ -->
+	<color name="sky">#15BDD8</color>
+	<color name="aquamarine">#32C3B2</color>
+	<color name="orange">#F68E4F</color>
+	<color name="gray_300">#AFB7C2</color>
+	<color name="gray_700">#424C58</color>
+	<color name="gray_500">#718191</color>
+	<color name="gray_100">#E8ECEF</color>
+	<color name="gray_green">#2B4043</color>
+	<color name="gray_0">#F7F9FA</color>
+
 </resources>
