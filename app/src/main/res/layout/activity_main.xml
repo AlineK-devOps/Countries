@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/gray_100">
+        android:background="@color/gray_0">
 
         <LinearLayout
             android:id="@+id/headerLinear"
             android:layout_width="match_parent"
             android:layout_height="114dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/gray_700"
             android:orientation="horizontal">
 
@@ -37,10 +37,10 @@
                 android:id="@+id/logoView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:scaleX="0.7"
-                android:scaleY="0.7"
-                android:src="@drawable/icon_launcher" />
+                android:layout_weight="2.5"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@drawable/header_icon" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,18 +62,30 @@
                 android:hint="@string/hint"
                 android:textColorHint="@color/gray_300"
                 android:textSize="14sp"
+                android:textColor="@color/gray_700"
                 android:ems="10"
-                android:drawableEnd="@drawable/outline_search_24"
-                android:drawableTint="@color/gray_300"
                 tools:ignore="RtlSymmetry" />
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/searchButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="3"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/outline_search_24"
+                android:tint="@color/white"
+                app:cb_color="@color/aquamarine"
+                app:cb_pressedRingWidth="0dip" />
 
             <at.markushi.ui.CircleButton
                 android:id="@+id/settingsButton"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_weight="5"
+                android:layout_weight="3"
+                android:layout_marginEnd="15dp"
                 android:src="@drawable/outline_menu_white_18"
-                app:cb_color="@color/orange"
+                app:cb_color="@color/aquamarine"
                 app:cb_pressedRingWidth="0dip" />
 
         </LinearLayout>
@@ -82,19 +94,28 @@
             android:id="@+id/countriesRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
             tools:listitem="@layout/item_country" />
 
         <LinearLayout
             android:id="@+id/randomCountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:background="@color/aquamarine">
 
             <TextView
                 android:id="@+id/randomCountryText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RANDOM COUNTRY"/>
+                android:layout_margin="15dp"
+                android:textSize="16dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="@string/random_country_label"
+                android:textColor="@color/white"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,8 +125,10 @@
                 <ImageView
                     android:id="@+id/flag"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
                     android:layout_weight="2"
+
                     android:src="@drawable/icon_launcher" />
 
                 <TextView
@@ -113,7 +136,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="COUNTRY AND CAPITAL" />
+                    android:layout_marginHorizontal="15dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textColor="@color/white"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="RUSSIA \nCAPITAL: Moscow" />
 
             </LinearLayout>
 
@@ -121,6 +148,9 @@
                 android:id="@+id/infoRandomContry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="@color/white"
                 android:text="INFO ABOUT RANDOM COUNTRY"/>
 
         </LinearLayout>
