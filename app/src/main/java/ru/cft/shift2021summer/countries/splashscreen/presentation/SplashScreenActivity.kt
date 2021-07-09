@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer.splashscreen
+package ru.cft.shift2021summer.countries.splashscreen.presentation
 
 /** Сплэшскрин - заставка приложения перед запуском **/
 
@@ -13,7 +13,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import ru.cft.shift2021summer.*
-import ru.cft.shift2021summer.main.MainActivity
+import ru.cft.shift2021summer.countries.main.presentation.MainActivity
 
 class SplashScreenActivity : Activity(), SplashScreenView {
     companion object{

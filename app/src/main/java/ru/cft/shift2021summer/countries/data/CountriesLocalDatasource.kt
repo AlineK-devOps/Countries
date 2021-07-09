@@ -1,22 +1,17 @@
-package ru.cft.shift2021summer.data
+package ru.cft.shift2021summer.countries.data
 
-import ru.cft.shift2021summer.data.model.*
+/** Источник данных **/
+
+import ru.cft.shift2021summer.countries.model.*
 import java.util.*
 
-/** Репозиторий стран **/
+interface CountriesLocalDatasource{
+    fun getAllCountries(): List<CountryModel>
 
-class CountryRepository private constructor() { //Singleton
-    companion object{
-        private var repository: CountryRepository? = null
+    fun getCountry(name: String): CountryModel?
+}
 
-        fun getInstance(): CountryRepository{
-            if (repository == null)
-                repository = CountryRepository()
-
-            return repository as CountryRepository
-        }
-    }
-
+class CountriesLocalDatasourceImpl : CountriesLocalDatasource {
     private val countries = mutableListOf<CountryModel>()
 
     init{
@@ -35,10 +30,8 @@ class CountryRepository private constructor() { //Singleton
         }
     }
 
-    fun getAllCountries(): List<CountryModel> = countries
+    override fun getAllCountries(): List<CountryModel> = countries
 
-    fun getRepository() = countries
-
-    fun getCountry(name: String): CountryModel? =
+    override fun getCountry(name: String): CountryModel? =
         countries.firstOrNull { it.name.equals(name, true) }
 }

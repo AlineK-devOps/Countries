@@ -8,21 +8,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shift2021Summer">
-        <activity android:name=".details.CountryDetailsActivity">
+        <activity android:name="ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".splashscreen.SplashScreenActivity">
+        <activity android:name="ru.cft.shift2021summer.countries.splashscreen.presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MainActivity">
+        <activity android:name="ru.cft.shift2021summer.countries.main.presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer.main
+package ru.cft.shift2021summer.countries.main.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,12 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.cft.shift2021summer.R
 import ru.cft.shift2021summer.adapters.CountriesAdapter
-import ru.cft.shift2021summer.details.CountryDetailsActivity
-import ru.cft.shift2021summer.data.model.CountryModel
-import ru.cft.shift2021summer.data.CountryRepository
+import ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity
+import ru.cft.shift2021summer.countries.model.CountryModel
+import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
+import ru.cft.shift2021summer.countries.main.domain.GetAllCountriesUseCase
 
 class MainActivity : AppCompatActivity(), MainView {
-    private val presenter by lazy { MainPresenter(CountryRepository.getInstance()) }
+    private val presenter by lazy { MainPresenter(GetAllCountriesUseCase(CountryRepositoryImpl.getInstance())) }
 
     private val adapter by lazy { CountriesAdapter (presenter::onCountryClicked) }
 

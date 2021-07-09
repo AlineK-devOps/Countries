@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer.details
+package ru.cft.shift2021summer.countries.details.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -7,8 +7,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import ru.cft.shift2021summer.R
-import ru.cft.shift2021summer.data.model.CountryModel
-import ru.cft.shift2021summer.data.CountryRepository
+import ru.cft.shift2021summer.countries.model.CountryModel
+import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
+import ru.cft.shift2021summer.countries.details.domain.GetCountryUseCase
 
 class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
     companion object{
@@ -25,7 +26,7 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
     private val presenter by lazy {
         intent.getStringExtra(EXTRA_NAME)?.let {
             CountryDetailsPresenter(
-                CountryRepository.getInstance(),
+                GetCountryUseCase(CountryRepositoryImpl.getInstance()),
                 it
             )
         }

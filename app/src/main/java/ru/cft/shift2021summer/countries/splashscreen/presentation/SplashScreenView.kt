@@ -1,6 +1,6 @@
-package ru.cft.shift2021summer.splashscreen
+package ru.cft.shift2021summer.countries.splashscreen.presentation
 
-import ru.cft.shift2021summer.base.BaseView
+import ru.cft.shift2021summer.countries.base.BaseView
 
 /** MVP контракт для SplashScreenActivity **/
 

@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer.data.model
+package ru.cft.shift2021summer.countries.model
 
 import java.util.*
 
