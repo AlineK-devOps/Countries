@@ -14,8 +14,6 @@ class MainPresenter(
     )
     : BasePresenter<MainView>() {
 
-    private val compositeDisposable = CompositeDisposable()
-
     fun onScreenResumed(){
         val disposable = repository.getAll()
             .observeOn(AndroidSchedulers.mainThread())

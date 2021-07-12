@@ -13,8 +13,6 @@ class CountryDetailsPresenter(
     private val countryName: String
 ) : BasePresenter<CountryDetailsView>() {
 
-    private val compositeDisposable = CompositeDisposable()
-
     override fun onViewAttached() {
         val disposable = repository.get(countryName)
             .observeOn(AndroidSchedulers.mainThread())
