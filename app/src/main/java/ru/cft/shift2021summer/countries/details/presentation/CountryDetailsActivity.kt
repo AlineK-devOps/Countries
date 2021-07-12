@@ -2,12 +2,14 @@ package ru.cft.shift2021summer.countries.details.presentation
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.squareup.picasso.Picasso
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+
 import ru.cft.shift2021summer.R
 import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
 import ru.cft.shift2021summer.countries.domain.model.CountryModel
@@ -56,16 +58,11 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
 
         infoText.text = getString(R.string.info_about_country, country)
 
-        Picasso.with(this)
-            .load(country.flag)
-            .fit()
-            .placeholder(R.drawable.flag_of_earth)
-            .centerCrop()
-            .into(flagImg)
-
-        /*Glide.with(this)
-            .load(country.flag)
-            .into(flagImg)*/
+        GlideToVectorYou
+            .init()
+            .with(this)
+            .setPlaceHolder(R.drawable.flag_of_earth, R.drawable.flag_of_earth)
+            .load(Uri.parse(country.flag), flagImg)
 
         backButton.setOnClickListener { closeScreen() }
     }

@@ -20,5 +20,7 @@
 	<color name="gray_100">#EAEEF1</color>
 	<color name="gray_green">#2B4043</color>
 	<color name="gray_0">#EFF3F4</color>
+	<color name="dark_blue">#304D71</color>
+
 
 </resources>

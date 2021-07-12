@@ -1,10 +1,13 @@
 package ru.cft.shift2021summer.countries.main.presentation
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import ru.cft.shift2021summer.R
 import ru.cft.shift2021summer.adapters.CountriesAdapter
 import ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     private lateinit var shortInfoRandomCountry : TextView
     private lateinit var infoRandomCountry : TextView
+    private lateinit var flagImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
         shortInfoRandomCountry = findViewById(R.id.shortInfoRandomCountry)
         infoRandomCountry = findViewById(R.id.infoRandomCountry)
+        flagImg = findViewById(R.id.flag)
     }
 
     override fun onResume() {
@@ -43,11 +48,21 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun bindCountry(countries: List<CountryModel>){
         adapter.countries = countries
 
-        val rand: Int = Random.nextInt(0, countries.size - 1)
+        val randomCountry: CountryModel = getRandomCountry(countries)
 
-        shortInfoRandomCountry.text = getString(R.string.country_name_capital, countries[rand].name, countries[rand].capital)
-        infoRandomCountry.text = countries[rand].getShortInfo()
+        shortInfoRandomCountry.text = getString(R.string.country_name_capital, randomCountry.name, randomCountry.capital)
+
+        GlideToVectorYou
+            .init()
+            .with(this)
+            .setPlaceHolder(R.drawable.flag_of_earth, R.drawable.flag_of_earth)
+            .load(Uri.parse(randomCountry.flag), flagImg)
+
+        infoRandomCountry.text = randomCountry.getShortInfo()
     }
+
+    private fun getRandomCountry(countries: List<CountryModel>): CountryModel =
+        countries[Random.nextInt(0, countries.size - 1)]
 
     override fun openDetailsScreen(countryName: String){
         CountryDetailsActivity.start(this, countryName)
