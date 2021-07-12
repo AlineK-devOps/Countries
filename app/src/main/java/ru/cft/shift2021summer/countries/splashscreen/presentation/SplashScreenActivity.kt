@@ -1,4 +1,4 @@
-package ru.cft.shift2021summer.splashscreen
+package ru.cft.shift2021summer.countries.splashscreen.presentation
 
 /** Сплэшскрин - заставка приложения перед запуском **/
 
@@ -13,7 +13,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import ru.cft.shift2021summer.*
-import ru.cft.shift2021summer.main.MainActivity
+import ru.cft.shift2021summer.countries.main.presentation.MainActivity
 
 class SplashScreenActivity : Activity(), SplashScreenView {
     companion object{
@@ -36,8 +36,8 @@ class SplashScreenActivity : Activity(), SplashScreenView {
     }
 
     override fun bindSplashScreen() {
-        spans.setSpan(ForegroundColorSpan(Color.parseColor("#304d71")), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spans.setSpan(ForegroundColorSpan(Color.parseColor("#5baee4")), 5, 9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spans.setSpan(ForegroundColorSpan(Color.parseColor("#304D71")), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spans.setSpan(ForegroundColorSpan(Color.parseColor("#32C3B2")), 5, 9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         textView.text = spans
 
         closeScreen()

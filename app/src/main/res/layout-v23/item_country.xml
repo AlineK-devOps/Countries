@@ -9,49 +9,40 @@
     android:paddingTop="8dp"
     android:foreground="?android:selectableItemBackground">
 
-    <TextView
-        android:id="@+id/nameText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/purple_700"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/capitalText"
-        app:layout_constraintEnd_toStartOf="@id/icon"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Russia" />
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/capitalText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purple_200"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/separator"
-        app:layout_constraintEnd_toStartOf="@id/icon"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
-        tools:text="Capital: Moscow" />
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAllCaps="true"
+            android:layout_weight="2"
+            tools:text="Russia" />
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_outline_chevron_right"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_chevron_right"
+            app:tint="@color/aquamarine" />
+    </LinearLayout>
 
     <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/purple_700"
+
+        android:background="@color/aquamarine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capitalText" />
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
 </androidx.constraintlayout.widget.ConstraintLayout>
