@@ -1,9 +1,10 @@
 package ru.cft.shift2021summer.countries.domain
 
-import ru.cft.shift2021summer.countries.model.CountryModel
+import io.reactivex.Single
+import ru.cft.shift2021summer.countries.domain.model.CountryModel
 
 interface CountryRepository {
-    fun getAllCountries(): List<CountryModel>
+    fun getAll(): Single<List<CountryModel>>
 
-    fun getCountry(name: String): CountryModel?
+    fun get(name: String): Single<CountryModel>
 }

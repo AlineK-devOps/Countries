@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ru.cft.shift2021summer">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_launcher"
         android:label="@string/app_name"
+
         android:supportsRtl="true"
         android:theme="@style/Theme.Shift2021Summer">
         <activity android:name="ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity">

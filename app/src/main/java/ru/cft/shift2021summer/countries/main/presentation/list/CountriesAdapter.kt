@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.cft.shift2021summer.R
-import ru.cft.shift2021summer.countries.model.CountryModel
+import ru.cft.shift2021summer.countries.domain.model.CountryModel
 
 class CountriesAdapter(private val onItemClick: (CountryModel) -> Unit) :
     RecyclerView.Adapter<CountryHolder>() {
