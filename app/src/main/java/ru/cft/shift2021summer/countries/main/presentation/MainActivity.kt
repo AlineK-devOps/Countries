@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,8 @@ import ru.cft.shift2021summer.adapters.CountriesAdapter
 import ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity
 import ru.cft.shift2021summer.countries.domain.model.CountryModel
 import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), MainView {
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity(), MainView {
     private lateinit var shortInfoRandomCountry : TextView
     private lateinit var infoRandomCountry : TextView
     private lateinit var flagImg: ImageView
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity(), MainView {
         shortInfoRandomCountry = findViewById(R.id.shortInfoRandomCountry)
         infoRandomCountry = findViewById(R.id.infoRandomCountry)
         flagImg = findViewById(R.id.flag)
+        searchView = findViewById(R.id.searchView)
     }
 
     override fun onResume() {
@@ -48,6 +53,12 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun bindCountry(countries: List<CountryModel>){
         adapter.countries = countries
 
+        initRandomCountry(countries)
+
+        initSearchView()
+    }
+
+    private fun initRandomCountry(countries: List<CountryModel>){
         val randomCountry: CountryModel = getRandomCountry(countries)
 
         shortInfoRandomCountry.text = getString(R.string.country_name_capital, randomCountry.name, randomCountry.capital)
@@ -59,6 +70,28 @@ class MainActivity : AppCompatActivity(), MainView {
             .load(Uri.parse(randomCountry.flag), flagImg)
 
         infoRandomCountry.text = randomCountry.getShortInfo()
+    }
+
+    private fun initSearchView(){
+        searchView.setOnQueryTextListener (object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                var filteredCountries: ArrayList<CountryModel> = ArrayList()
+
+                for (country in adapter.countries){
+                    if (country.name.lowercase(Locale.getDefault()).contains(newText.lowercase(Locale.getDefault())))
+                        filteredCountries.add(country)
+                }
+                val filterAdapter =  CountriesAdapter (presenter::onCountryClicked)
+                filterAdapter.countries = filteredCountries
+                countriesRecycler.adapter = filterAdapter
+
+                return true
+            }
+        })
     }
 
     private fun getRandomCountry(countries: List<CountryModel>): CountryModel =
