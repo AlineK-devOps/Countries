@@ -8,6 +8,30 @@
         %1$s \nCAPITAL: %2$s
     </string>
     <string name="info_about_country">INFO ABOUT COUNTRY:\n\n%1$s</string>
+    <string name="show_button">SHOW</string>
+
+    <string name="settings_region">REGION</string>
+    <string name="setting_all">All</string>
+    <string name="region_africa">Africa</string>
+    <string name="region_americas">Americas</string>
+    <string name="region_asia">Asia</string>
+    <string name="region_europe">Europe</string>
+    <string name="region_oceania">Oceania</string>
+
+    <string name="settings_regional_block">REGIONAL BLOCK</string>
+    <string name="block_eu">EU</string>
+    <string name="block_efta">EFTA</string>
+    <string name="block_caricom">CARICOM</string>
+    <string name="block_pa">PA</string>
+    <string name="block_au">AU</string>
+    <string name="block_usan">USAN</string>
+    <string name="block_eeu">EEU</string>
+    <string name="block_al">AL</string>
+    <string name="block_asean">ASEAN</string>
+    <string name="block_cais">CAIS</string>
+    <string name="block_cefta">CEFTA</string>
+    <string name="block_nafta">NAFTA</string>
+    <string name="block_saarc">SAARC</string>
 
 
     <string name="name_country_format">%1$s</string>
