@@ -136,10 +136,10 @@
             android:id="@+id/allBlocksBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/setting_all"
-            android:textColor="@color/gray_700"
+            android:layout_marginHorizontal="15dp"
             android:layout_weight="1"
-            android:layout_marginHorizontal="15dp"/>
+            android:text="@string/setting_all"
+            android:textColor="@color/gray_700" />
 
         <CheckBox
             android:id="@+id/euBox"
@@ -281,6 +281,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/showButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/show_button"

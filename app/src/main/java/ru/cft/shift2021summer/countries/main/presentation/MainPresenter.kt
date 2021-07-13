@@ -13,7 +13,8 @@ import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 class  MainPresenter(
-    private val repository: CountryRepository
+    private val repository: CountryRepository,
+    private val params: Array<String>? = null
     )
     : BasePresenter<MainView>() {
 
@@ -22,6 +23,7 @@ class  MainPresenter(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onSuccess = {
+                    //сортировка списка
                     view?.bindCountry(it)
                     view?.bindRandomCountry(it[Random.nextInt(0, it.size - 1)])
                 },

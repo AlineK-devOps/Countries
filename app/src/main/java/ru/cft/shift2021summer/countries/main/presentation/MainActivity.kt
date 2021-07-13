@@ -1,5 +1,7 @@
 package ru.cft.shift2021summer.countries.main.presentation
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,13 +18,30 @@ import ru.cft.shift2021summer.adapters.CountriesAdapter
 import ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity
 import ru.cft.shift2021summer.countries.domain.model.CountryModel
 import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
+import ru.cft.shift2021summer.countries.details.presentation.CountryDetailsPresenter
 import ru.cft.shift2021summer.countries.filter.presentation.FilterActivity
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), MainView {
-    private val presenter by lazy { MainPresenter(CountryRepositoryImpl.getInstance()) }
+    companion object{
+        private const val EXTRA_NAME = "EXTRA_NAME3"
+
+        fun start(context: Context, params: Array<String>){
+            val intent = Intent(context, MainActivity::class.java).apply {
+                putExtra(EXTRA_NAME, params)
+            }
+            context.startActivity(intent)
+        }
+    }
+
+    private val presenter by lazy {
+        MainPresenter(
+            CountryRepositoryImpl.getInstance(),
+            intent.getStringArrayExtra(EXTRA_NAME)
+        )
+    }
 
     private val adapter by lazy { CountriesAdapter (presenter::onCountryClicked) }
 
