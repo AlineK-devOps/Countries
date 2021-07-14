@@ -57,6 +57,26 @@
                 android:text="INFO ABOUT COUNTRY"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/aquamarine">
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_margin="15dp"
+                android:textColor="@color/white"
+                android:text="@string/location"/>
+        </LinearLayout>
+
+        <com.yandex.mapkit.mapview.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
+
     </LinearLayout>
 
 </ScrollView>

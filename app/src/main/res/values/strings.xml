@@ -9,6 +9,7 @@
     </string>
     <string name="info_about_country">INFO ABOUT COUNTRY:\n\n%1$s</string>
     <string name="show_button">SHOW</string>
+    <string name="location">LOCATION</string>
 
     <string name="settings_region">REGION</string>
     <string name="setting_all">All</string>
@@ -33,12 +34,5 @@
     <string name="block_nafta">NAFTA</string>
     <string name="block_saarc">SAARC</string>
 
-
     <string name="name_country_format">%1$s</string>
-    <string name="capital_format">Capital: %1$s</string>
-    <string name="population_format">Population: %1$d</string>
-    <string name="area_format">Area: %1$f</string>
-
-
-    <string name="back_button">GO BACK</string>
 </resources>

@@ -11,6 +11,11 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import com.yandex.mapkit.Animation
+import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.geometry.Point
+import com.yandex.mapkit.map.CameraPosition
+import com.yandex.mapkit.mapview.MapView
 
 import ru.cft.shift2021summer.R
 import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
@@ -41,10 +46,15 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
     private lateinit var nameText : TextView
     private lateinit var infoText : TextView
     private lateinit var flagImg: ImageView
+    private lateinit var mapView: MapView
     private var actionBar: ActionBar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        MapKeySingleton.initKey()
+        MapKitFactory.initialize(this)
+
         setContentView(R.layout.activity_country_details)
 
         actionBar = supportActionBar
@@ -52,7 +62,21 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
         infoText = findViewById(R.id.infoText)
         flagImg = findViewById(R.id.flag)
 
+        mapView = findViewById(R.id.mapView)
+
         presenter?.attachView(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mapView.onStop()
+        MapKitFactory.getInstance().onStop()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mapView.onStart()
+        MapKitFactory.getInstance().onStart()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -80,6 +104,26 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
             .with(this)
             .setPlaceHolder(R.drawable.flag_of_earth, R.drawable.flag_of_earth)
             .load(Uri.parse(country.flag), flagImg)
+
+        if (country.latlng.isNotEmpty()){
+            val zoom = when {
+                country.area < 50000.0f -> 7.0f
+                country.area < 100000.0f -> 6.0f
+                country.area < 500000.0f -> 5.0f
+                country.area < 2000000.0f -> 4.0f
+                country.area < 5000000.0f -> 3.0f
+                else -> 2.0f
+            }
+
+            mapView.map.move(
+                CameraPosition(
+                    Point(country.latlng[0], country.latlng[1]),
+                    zoom,
+                    0.0f,
+                    0.0f),
+                Animation(Animation.Type.SMOOTH, 0F),
+                null)
+        }
     }
 
     override fun closeScreen() {
