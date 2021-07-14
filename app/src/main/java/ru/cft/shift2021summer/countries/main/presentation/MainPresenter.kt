@@ -61,7 +61,6 @@ class  MainPresenter(
                             if (isCorrectRegion && isCorrectBlock)
                                 filteredCountries.add(country)
                         }
-
                         view?.bindCountry(filteredCountries)
                     }
                     else view?.bindCountry(it)

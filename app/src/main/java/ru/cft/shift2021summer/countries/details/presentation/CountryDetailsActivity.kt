@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
@@ -38,22 +40,37 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
 
     private lateinit var nameText : TextView
     private lateinit var infoText : TextView
-    private lateinit var backButton: Button
     private lateinit var flagImg: ImageView
+    private var actionBar: ActionBar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country_details)
 
+        actionBar = supportActionBar
         nameText = findViewById(R.id.nameText)
         infoText = findViewById(R.id.infoText)
-        backButton = findViewById(R.id.backButton)
         flagImg = findViewById(R.id.flag)
 
         presenter?.attachView(this)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            android.R.id.home -> {
+                presenter?.onBackButtonClicked()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun bindCountry(country: CountryModel) {
+        actionBar?.title = ""
+
+        actionBar?.setHomeButtonEnabled(true)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         nameText.text = getString(R.string.country_name_capital, country.name, country.getNameAndCapital())
 
         infoText.text = getString(R.string.info_about_country, country)
@@ -63,8 +80,6 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsView {
             .with(this)
             .setPlaceHolder(R.drawable.flag_of_earth, R.drawable.flag_of_earth)
             .load(Uri.parse(country.flag), flagImg)
-
-        backButton.setOnClickListener { closeScreen() }
     }
 
     override fun closeScreen() {

@@ -23,4 +23,8 @@ class CountryDetailsPresenter(
             )
         compositeDisposable.add(disposable)
     }
+
+    fun onBackButtonClicked(){
+        view?.closeScreen()
+    }
 }

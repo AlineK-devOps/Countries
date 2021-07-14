@@ -4,13 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
+import androidx.appcompat.app.ActionBar
 import ru.cft.shift2021summer.R
-import ru.cft.shift2021summer.countries.data.CountryRepositoryImpl
-import ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity
 import ru.cft.shift2021summer.countries.main.presentation.MainActivity
-import ru.cft.shift2021summer.countries.main.presentation.MainPresenter
 
 class FilterActivity : AppCompatActivity(), FilterView {
     private val presenter = FilterPresenter()
@@ -26,6 +25,7 @@ class FilterActivity : AppCompatActivity(), FilterView {
     private var regionalBlocks: MutableList<CheckBox> = mutableListOf()
 
     private lateinit var showButton: Button
+    private var actionBar: ActionBar? = null
 
     private lateinit var allRegionBox: CheckBox
     private lateinit var americasBox: CheckBox
@@ -56,6 +56,7 @@ class FilterActivity : AppCompatActivity(), FilterView {
         presenter.attachView(this)
 
         showButton = findViewById(R.id.showButton)
+        actionBar = supportActionBar
 
 
         allRegionBox = findViewById(R.id.allRegionBox)
@@ -125,7 +126,22 @@ class FilterActivity : AppCompatActivity(), FilterView {
         presenter.onScreenResumed()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            android.R.id.home -> {
+                presenter.onBackButtonClicked()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun bindFilter() {
+        actionBar?.title = "Filter"
+
+        actionBar?.setHomeButtonEnabled(true)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         showButton.setOnClickListener { presenter.onShowButtonClicked() }
     }
 
