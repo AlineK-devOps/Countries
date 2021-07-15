@@ -56,4 +56,6 @@ dependencies {
 	implementation "io.reactivex.rxjava2:rxkotlin:2.3.0"
 	implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
 	implementation 'com.yandex.android:maps.mobile:4.0.0-lite'
+	implementation group: 'org.mockito', name: 'mockito-all', version: '2.0.2-beta'
+	androidTestImplementation 'com.kaspersky.android-components:kaspresso:1.2.1'
 }
