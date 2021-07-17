@@ -36,8 +36,8 @@ class SplashScreenActivity : Activity(), SplashScreenView {
     }
 
     override fun bindSplashScreen() {
-        spans.setSpan(ForegroundColorSpan(Color.parseColor("#304D71")), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spans.setSpan(ForegroundColorSpan(Color.parseColor("#32C3B2")), 5, 9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spans.setSpan(ForegroundColorSpan(resources.getColor(R.color.gray_700)), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spans.setSpan(ForegroundColorSpan(resources.getColor(R.color.aquamarine)), 5, 9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         textView.text = spans
 
         closeScreen()

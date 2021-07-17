@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".countries.filter.presentation.FilterActivity"
+    android:background="@color/gray_0">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      tools:ignore="MissingConstraints">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_margin="15dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/aquamarine">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/settings_region"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-smallcaps"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/allRegionBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_all"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/americasBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/region_americas"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/asiaBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/region_asia"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/europeBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/region_europe"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/africaBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/region_africa"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/oceaniaBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/region_oceania"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginHorizontal="15dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/gray_700">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/settings_regional_block"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-smallcaps"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/allBlocksBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_weight="1"
+            android:text="@string/setting_all"
+            android:textColor="@color/gray_700" />
+
+        <CheckBox
+            android:id="@+id/euBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_eu"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+
+        <CheckBox
+            android:id="@+id/eftaBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_efta"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/caricomBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_caricom"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/paBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_pa"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+
+        <CheckBox
+            android:id="@+id/auBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_au"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/usanBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_usan"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/eeuBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_eeu"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+
+        <CheckBox
+            android:id="@+id/alBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_al"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/caisBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_cais"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/aseanBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_asean"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+
+        <CheckBox
+            android:id="@+id/ceftaBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_cefta"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/naftaBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_nafta"
+            android:textColor="@color/gray_700"
+            android:layout_weight="2"
+            android:layout_marginHorizontal="15dp"/>
+
+        <CheckBox
+            android:id="@+id/saarcBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/block_saarc"
+            android:textColor="@color/gray_700"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"/>
+      </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/showButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_button"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginHorizontal="130dp"
+        android:layout_marginVertical="15dp"
+        android:backgroundTint="@color/aquamarine"/>
+
+    </LinearLayout>
+
+</ScrollView>

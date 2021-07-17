@@ -23,9 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginVertical="15dp"
                 android:layout_marginStart="15dp"
-                android:layout_weight="2"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
+                android:layout_weight="1.5"
                 android:src="@drawable/flag_of_earth" />
 
             <TextView
@@ -33,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_margin="15dp"
+                android:layout_marginVertical="30dp"
+                android:layout_marginHorizontal="15dp"
                 android:fontFamily="sans-serif-smallcaps"
                 android:textColor="@color/white"
                 android:textAllCaps="true"
@@ -58,14 +57,25 @@
                 android:text="INFO ABOUT COUNTRY"/>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/backButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/back_button"
-            android:textAlignment="center"
-            android:layout_marginTop="15dp"
-            android:textSize="16sp"/>
+            android:background="@color/aquamarine">
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_margin="15dp"
+                android:textColor="@color/white"
+                android:text="@string/location"/>
+        </LinearLayout>
+
+        <com.yandex.mapkit.mapview.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
 
     </LinearLayout>
 

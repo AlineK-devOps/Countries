@@ -1,9 +1,12 @@
 package ru.cft.shift2021summer.countries.base
 
+import io.reactivex.disposables.CompositeDisposable
+
 /** Базовый presenter для MVP **/
 
 open class BasePresenter <View: BaseView> {
     var view: View? = null
+    var compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     fun attachView(view: View){
         this.view = view
@@ -15,4 +18,8 @@ open class BasePresenter <View: BaseView> {
     }
 
     open fun onViewAttached(){}
+
+    fun onCleared() {
+        compositeDisposable.clear()
+    }
 }

@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ru.cft.shift2021summer">
+    package="ru.cft.shift2021summer" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_launcher"
         android:label="@string/app_name"
-
         android:supportsRtl="true"
-        android:theme="@style/Theme.Shift2021Summer">
-        <activity android:name="ru.cft.shift2021summer.countries.details.presentation.CountryDetailsActivity">
+        android:theme="@style/Theme.Shift2021Summer" >
+        <activity android:name=".countries.filter.presentation.FilterActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="ru.cft.shift2021summer.countries.splashscreen.presentation.SplashScreenActivity">
+        <activity android:name=".countries.details.presentation.CountryDetailsActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".countries.splashscreen.presentation.SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ru.cft.shift2021summer.countries.main.presentation.MainActivity">
+        <activity android:name=".countries.main.presentation.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
