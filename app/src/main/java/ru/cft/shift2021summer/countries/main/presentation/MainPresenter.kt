@@ -24,10 +24,10 @@ class  MainPresenter(
             .subscribeBy(
                 onSuccess = {
 
-                    if (params != null && params.isNotEmpty()){
-                        var filteredCountries: MutableList<CountryModel> = mutableListOf()
-                        var regions: MutableList<String> = mutableListOf()
-                        var regionalBlocks: MutableList<String> = mutableListOf()
+                    if (!params.isNullOrEmpty()){
+                        val filteredCountries: MutableList<CountryModel> = mutableListOf()
+                        val regions: MutableList<String> = mutableListOf()
+                        val regionalBlocks: MutableList<String> = mutableListOf()
 
                         for (str in params){
                             val list: List<String> = str.split("-")
@@ -41,18 +41,20 @@ class  MainPresenter(
                             var isCorrectRegion = false
                             var isCorrectBlock = false
 
-                            if (regions.isNotEmpty()){
-                                if (regions.contains("all") || regions.contains(country.region.lowercase())){
+                            if (!regions.isNullOrEmpty()){
+                                if (!country.region.isNullOrEmpty() && (regions.contains("all") || regions.contains(country.region.lowercase()))){
                                     isCorrectRegion = true
                                 }
                             }
                             else isCorrectRegion = true
 
-                            if (regionalBlocks.isNotEmpty()){
-                                for (block in country.regionalBlocs){
-                                    if (regionalBlocks.contains("all") || regionalBlocks.contains(block.acronym.lowercase())){
-                                        isCorrectBlock = true
-                                        break
+                            if (!regionalBlocks.isNullOrEmpty()){
+                                if (!country.regionalBlocs.isNullOrEmpty()){
+                                    for (block in country.regionalBlocs){
+                                        if (regionalBlocks.contains("all") || regionalBlocks.contains(block.acronym.lowercase())){
+                                            isCorrectBlock = true
+                                            break
+                                        }
                                     }
                                 }
                             }
