@@ -17,6 +17,18 @@ interface CountriesDatasource{
 class CountriesDatasourceImpl(private val countryApi: CountryApi) : CountriesDatasource {
     private val countries = mutableListOf<CountryModel>()
 
+    override fun getAll(): Single<List<CountryModel>> =
+        countryApi.getAll()
+            .map {
+                it.body() ?: countries
+            }
+
+    override fun get(name: String): Single<CountryModel> =
+        countryApi.get(name)
+            .map {
+                it.body()?.get(0) ?: countries[0]
+            }
+
     init{
         for (i in 1..20){ //тестовые данные
             val country = CountryModel("name$i", listOf("topLevelDomain$i", "topLevelDomain$i"),
@@ -32,16 +44,4 @@ class CountriesDatasourceImpl(private val countryApi: CountryApi) : CountriesDat
             countries.add(country);
         }
     }
-
-    override fun getAll(): Single<List<CountryModel>> =
-        countryApi.getAll()
-            .map {
-                it.body() ?: countries
-            }
-
-    override fun get(name: String): Single<CountryModel> =
-        countryApi.get(name)
-            .map {
-                it.body()?.get(0) ?: countries[0]
-            }
 }

@@ -29,7 +29,7 @@ data class CountryModel(
     val cioc: String                               //центральноамериканский общий рынок?
 ){
     fun getNameAndCapital(): String {
-        return if (capital.isNotBlank()) capital
+        return if (!capital.isNullOrBlank()) capital
         else "None"
     }
 
@@ -46,67 +46,67 @@ data class CountryModel(
                     "Population: %d humans\n\n" + "Area: %.1f km^2\n\n" + "Gini index: %.2f\n\n" +
                     "Numeric code: %s\n\n" + "Alpha-2 code: %s, alpha-3 code: %s\n\n", nativeName, latlng, population, area, gini, numericCode, alpha2Code, alpha3Code)
 
-        if (region.isNotBlank()){
+        if (!region.isNullOrBlank()){
             info += String.format("Region: %s", region)
-            if (subregion.isNotBlank())
+            if (!subregion.isNullOrBlank())
                 info += String.format(", subregion: %s", subregion)
         }
         else info += "Region: None"
         info += "\n\n"
 
-        if (demonym.isNotBlank())
-            info += String.format("Demonym: %s", demonym)
-        else info += "Demonym: None"
+        info += if (!demonym.isNullOrBlank())
+            String.format("Demonym: %s", demonym)
+        else "Demonym: None"
         info += "\n\n"
 
-        if (callingCodes.isNotEmpty())
-            info += String.format("Calling codes: %s", callingCodes)
-        else info += "Calling codes: None"
+        info += if (!callingCodes.isNullOrEmpty())
+            String.format("Calling codes: %s", callingCodes)
+        else "Calling codes: None"
         info += "\n\n"
 
-        if (timezones.isNotEmpty())
-            info += String.format("Time zones: %s", timezones)
-        else info += "Time zones: None"
+        info += if (!timezones.isNullOrEmpty())
+            String.format("Time zones: %s", timezones)
+        else "Time zones: None"
         info += "\n\n"
 
-        if (currencies.isNotEmpty())
-            info += String.format("Currencies: %s", currencies)
-        else info += "Currencies: None"
+        info += if (!currencies.isNullOrEmpty())
+            String.format("Currencies: %s", currencies)
+        else "Currencies: None"
         info += "\n\n"
 
-        if (languages.isNotEmpty())
-            info += String.format("Languages: %s", languages)
-        else info += "Languages: None"
+        info += if (!languages.isNullOrEmpty())
+            String.format("Languages: %s", languages)
+        else "Languages: None"
         info += "\n\n"
 
-        if (altSpellings.isNotEmpty())
-            info += String.format("Alternative spellings: %s", altSpellings)
-        else info += "Alternative spellings: None"
+        info += if (!altSpellings.isNullOrEmpty())
+            String.format("Alternative spellings: %s", altSpellings)
+        else "Alternative spellings: None"
         info += "\n\n"
 
-        if (translations.toString().isNotBlank())
-            info += String.format("Translations: %s", translations)
-        else info += "Translations None"
+        info += if (translations != null && translations.toString().isNotBlank())
+            String.format("Translations: %s", translations)
+        else "Translations None"
         info += "\n\n"
 
-        if (borders.isNotEmpty())
-            info += String.format("Borders: %s", borders)
-        else info += "Borders None"
+        info += if (!borders.isNullOrEmpty())
+            String.format("Borders: %s", borders)
+        else "Borders None"
         info += "\n\n"
 
-        if (regionalBlocs.isNotEmpty())
-            info += String.format("Regional blocs: %s", regionalBlocs)
-        else info += "Regional blocs: None"
+        info += if (!regionalBlocs.isNullOrEmpty())
+            String.format("Regional blocs: %s", regionalBlocs)
+        else "Regional blocs: None"
         info += "\n\n"
 
-        if (cioc.isNotBlank())
-            info += String.format("Cioc: %s", cioc)
-        else info += "Cioc: None"
+        info += if (!cioc.isNullOrBlank())
+            String.format("Cioc: %s", cioc)
+        else "Cioc: None"
         info += "\n\n"
 
-        if (topLevelDomain.isNotEmpty())
-            info += String.format("Top level domain: %s", topLevelDomain)
-        else info += "Top level domain: None"
+        info += if (!topLevelDomain.isNullOrEmpty())
+            String.format("Top level domain: %s", topLevelDomain)
+        else "Top level domain: None"
 
         return info
     }

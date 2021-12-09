@@ -9,18 +9,18 @@ data class RegionalBlockModel(
     val otherNames: List<String>     //прочие названия блока
 ){
     override fun toString(): String {
-        var info : String = "Name: $name, acronym: $acronym"
+        var info = "Name: $name, acronym: $acronym"
         val temp = "None"
 
-        if (otherNames.isNotEmpty())
-            info += ", other names: $otherNames"
+        info += if (!otherNames.isNullOrEmpty())
+            ", other names: $otherNames"
         else
-            info += ", other names: $temp"
+            ", other names: $temp"
 
-        if (otherAcronyms.isNotEmpty())
-            info += ", other names: $otherNames"
+        info += if (!otherAcronyms.isNullOrEmpty())
+            ", other acronyms: $otherNames"
         else
-            info += ", other names: $temp"
+            ", other acronyms: $temp"
 
         return info
     }

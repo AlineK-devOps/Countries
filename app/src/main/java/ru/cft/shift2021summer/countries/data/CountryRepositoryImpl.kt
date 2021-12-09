@@ -18,7 +18,7 @@ class CountryRepositoryImpl private constructor( //Singleton
 ): CountryRepository {
 
     companion object{
-        var BASE_URL = "https://restcountries.eu/rest/v2/"
+        var BASE_URL = "https://restcountries.com/v2/"
 
         private var repository: CountryRepositoryImpl? = null
         private var retrofit: Retrofit = Retrofit.Builder()

@@ -29,7 +29,7 @@ class SplashScreenActivity : Activity(), SplashScreenView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
 
-        textView = findViewById<View>(R.id.textView) as TextView
+        textView = findViewById(R.id.textView)
         spans = SpannableString("WORLDWIDE")
 
         presenter.attachView(this)
